@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TeAmbassador</string>
+
+    //signUp
+    <string name="signUpPhone">Phone No.</string>
+    <string name="signUpName">Name</string>
+    <string name="signUpEmail">Email</string>
+    <string name="signUpPassword">Password</string>
+    <string name="signUpDob">DD/MM/YYYY(DOB)</string>
+    <string name="signUpButton">SIGN UP</string>
+    <string name="signUpLoginJump">Already a member? Please login.</string>
+    <string name="signUpHello">Hello,</string>
+    <string name="signUpSign">Sign Up!</string>
+</resources>
