@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TeAmbassador</string>
+
+    <!-- Login -->
+    <string name="loginWelcomeBack">Welcome Back,</string>
+    <string name="logIn">Log In!</string>
+    <string name="loginEmail">Email</string>i
+    <string name="loginPassword">Password</string>
+    <string name="loginContinue">Continue</string>
+    <string name="loginForgotPassword">Forgot Password?</string>
+    <string name="loginSignUpJump">Already a member? Please login.</string>
+
+    <!-- ForgotPassword -->
+    <string name="forgotPasswordEmail">Enter Email</string>
+    <string name="forgotPasswordButton">Reset Password</string>
+
+</resources>
