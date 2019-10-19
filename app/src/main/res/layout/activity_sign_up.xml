@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".signUp">
 
+
     <LinearLayout
         android:id="@+id/signUpLinearLayout"
         android:layout_width="match_parent"
@@ -25,14 +26,18 @@
             android:layout_marginLeft="30dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/signUpPhone"
-            app:boxStrokeColor="@color/colorOutline"
+            app:boxStrokeColor="@color/colorBlue"
             android:textColorHint="@color/colorOutline">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signUpPhoneEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:drawableStart="@drawable/ic_phone_black_24dp"
+                android:drawablePadding="5dp"
+                android:maxLength="10"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -43,14 +48,17 @@
             android:layout_marginLeft="30dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/signUpName"
-            app:boxStrokeColor="@color/colorOutline"
-            android:textColorHint="@color/colorOutline">
+            android:textColorHint="@color/colorOutline"
+            app:boxStrokeColor="@color/colorBlue">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signUpNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:drawableStart="@drawable/ic_person_black_24dp"
+                android:drawablePadding="5dp"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -62,13 +70,16 @@
             android:layout_marginRight="30dp"
             android:hint="@string/signUpEmail"
             android:textColorHint="@color/colorOutline"
-            app:boxStrokeColor="@color/colorOutline">
+            app:boxStrokeColor="@color/colorBlue">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signUpEmailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:drawablePadding="5dp"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -79,14 +90,17 @@
             android:layout_marginLeft="30dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/signUpPassword"
-            app:boxStrokeColor="@color/colorOutline"
+            app:boxStrokeColor="@color/colorBlue"
             android:textColorHint="@color/colorOutline">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signUpPasswordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:drawableStart="@drawable/ic_vpn_key_black_24dp"
+                android:drawablePadding="5dp"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -97,14 +111,18 @@
             android:layout_marginLeft="30dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/signUpDob"
-            app:boxStrokeColor="@color/colorOutline"
+            app:boxStrokeColor="@color/colorBlue"
             android:textColorHint="@color/colorOutline">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signUpDobEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="number"
+                android:drawableStart="@drawable/ic_date_range_black_24dp"
+                android:drawablePadding="5dp"
+                android:maxLength="10"
+                android:maxLines="1"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -140,30 +158,36 @@
         android:layout_marginEnd="170dp"
         app:layout_constraintBottom_toTopOf="@+id/signUpLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/blob" />
+        app:srcCompat="@drawable/blob"
+        android:contentDescription="@string/app_name"/>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="40dp"
-        android:text="@string/signUpSign"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
-        android:fontFamily="@font/proxima_nova_bold"
-        app:layout_constraintBottom_toBottomOf="@+id/signUpImageView"
-        app:layout_constraintEnd_toEndOf="@+id/signUpImageView" />
+    <LinearLayout
+        android:id="@+id/signUpLinearlayout2"
+        android:layout_width="180dp"
+        android:layout_height="122dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="130dp"
-        android:fontFamily="@font/proxima_nova_bold"
-        android:text="@string/signUpHello"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/textView3"
-        app:layout_constraintEnd_toEndOf="@id/signUpImageView" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/signUpHello"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/signUpSign"
+            android:textColor="#FFFFFF"
+            android:textSize="40sp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".OTP" />
-        <activity android:name=".signUp">
+        <activity android:name=".OTP"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".signUp"
+            android:theme="@style/AppTheme."
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -45,7 +45,7 @@ public class userInfo implements Parcelable {
         }
     };
 
-    public String getphone(){
+        public String getphone(){
             return phone;
         }
         public String getname(){
