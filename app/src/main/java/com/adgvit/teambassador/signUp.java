@@ -2,23 +2,21 @@ package com.adgvit.teambassador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import java.util.regex.Pattern;
+import java.util.Calendar;
 
 public class signUp extends AppCompatActivity {
 
     private EditText phoneEditText, nameEditText, emailEditText, passwordEditText, dobEditText;
     private String phone, name, email, password, dob;
-    int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,37 +26,27 @@ public class signUp extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        phoneEditText = (EditText) findViewById(R.id.signUpPhoneEditText);
-        nameEditText = (EditText) findViewById(R.id.signUpNameEditText);
-        emailEditText = (EditText) findViewById(R.id.signUpEmailEditText);
-        passwordEditText = (EditText) findViewById(R.id.signUpPasswordEditText);
-        dobEditText = (EditText) findViewById(R.id.signUpDobEditText);
+        phoneEditText = findViewById(R.id.signUpPhoneEditText);
+        nameEditText = findViewById(R.id.signUpNameEditText);
+        emailEditText = findViewById(R.id.signUpEmailEditText);
+        passwordEditText = findViewById(R.id.signUpPasswordEditText);
+        dobEditText = findViewById(R.id.signUpDobEditText);
 
-        dobEditText.addTextChangedListener(new TextWatcher() {
+        dobEditText.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void onClick(View v) {
 
-            }
+                new DatePickerDialog(signUp.this, R.style.DialogTheme, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                if(flag < 2) {
-                    if (s.length() == 2 || s.length() == 5) {
-                        s = s + "/";
-                        dobEditText.setText(s);
-                        dobEditText.setSelection(s.length());
-                        flag = flag + 1;
+                        String date = dayOfMonth + "/" + monthOfYear + "/" + year;
+                        dobEditText.setText(date);
+                        dobEditText.setSelection(dobEditText.getText().length());
                     }
-                }
-                if(s.length() <= 2){
-                    flag = 0;
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
+                },      Calendar.getInstance().get(Calendar.YEAR),
+                        Calendar.getInstance().get(Calendar.MONTH),
+                        Calendar.getInstance().get(Calendar.DAY_OF_MONTH)).show();
             }
         });
 
