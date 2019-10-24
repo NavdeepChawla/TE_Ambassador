@@ -1,6 +1,19 @@
 <resources>
     <string name="app_name">TE Ambassador</string>
 
+    <!-- Login -->
+    <string name="loginWelcomeBack">Welcome Back,</string>
+    <string name="logIn">Log In!</string>
+    <string name="loginEmail">Email</string>i
+    <string name="loginPassword">Password</string>
+    <string name="loginContinue">Continue</string>
+    <string name="loginForgotPassword">Forgot Password?</string>
+    <string name="loginSignUpJump">Already a member? Please login.</string>
+
+    <!-- ForgotPassword -->
+    <string name="forgotPasswordEmail">Enter Email</string>
+    <string name="forgotPasswordButton">Reset Password</string>
+
     //signUp
     <string name="signUpPhone">Phone No.</string>
     <string name="signUpName">Name</string>
@@ -17,6 +30,7 @@
     <string name="otpResend">Resend Code</string>
     <string name="otpVerifyButton">VERIFY</string>
 
+    <!-- NavigationActivity -->
     <string name="title_activity_navigation">NavigationActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -25,9 +39,11 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!--NavigationMenu-->
     <string name="menu_home">Home</string>
     <string name="menu_payment">Payment</string>
 
+    <!--HomeFragment -->
     <string name="homeTextViewHey">Hey,</string>
     <string name="homeTextViewName">User Name!</string>
     <string name="homeTextViewProgressBarRemaining">Remaining</string>
