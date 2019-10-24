@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "832378515746",
+    "firebase_url": "https://te-ambassador.firebaseio.com",
+    "project_id": "te-ambassador",
+    "storage_bucket": "te-ambassador.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832378515746:android:32c74cae83a7b3514db57b",
+        "android_client_info": {
+          "package_name": "com.adgvit.teambassador"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832378515746-og5npfu42ioovsrtofv9glnma0ajfueg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv3o-kKOlC4ahQ2CCQVzLG4fUKCho9oe8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832378515746-og5npfu42ioovsrtofv9glnma0ajfueg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

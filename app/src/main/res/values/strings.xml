@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">TE Ambassador</string>
+
+    //signUp
+    <string name="signUpPhone">Phone No.</string>
+    <string name="signUpName">Name</string>
+    <string name="signUpEmail">Email</string>
+    <string name="signUpPassword">Password</string>
+    <string name="signUpDob">DD/MM/YYYY</string>
+    <string name="signUpButton">SIGN UP</string>
+    <string name="signUpLoginJump">Already a member? Please login.</string>
+    <string name="signUpHello">Hello,</string>
+    <string name="signUpSign">Sign Up!</string>
+
+    //OTP
+    <string name="otpNumber">We have sent OTP to +91 9891179000</string>
+    <string name="otpResend">Resend Code</string>
+    <string name="otpVerifyButton">VERIFY</string>
+
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_payment">Payment</string>
+
+    <string name="homeTextViewHey">Hey,</string>
+    <string name="homeTextViewName">User Name!</string>
+    <string name="homeTextViewProgressBarRemaining">Remaining</string>
+    <string name="homeTextViewProgressBarCompleted">Completed</string>
+    <string name="homeTextViewLevel">Level</string>
+    <string name="homeTextViewWork">Work Allotment</string>
+</resources>
