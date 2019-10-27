@@ -1,7 +1,8 @@
 package com.adgvit.teambassador.ui.home;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,12 +29,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class HomeFragment extends Fragment
 {
-    final String homeUserEmail="navdeepchawla2000@gmail_com";
-    final DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(homeUserEmail).child("Name");
-    final DatabaseReference keyRef = FirebaseDatabase.getInstance().getReference().child("Tasks").child(homeUserEmail);
     final List<UserTask> homeTaskList=new ArrayList<>();
     final List<String> colorTask =new ArrayList<>();
     int position=0;
@@ -50,6 +52,11 @@ public class HomeFragment extends Fragment
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
+        SharedPreferences prefs = Objects.requireNonNull(getContext()).getSharedPreferences("EMAIL", Context.MODE_PRIVATE);
+        final String homeUserEmail=prefs.getString("Email","");
+        final DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("Users").child(homeUserEmail).child("Name");
+        final DatabaseReference keyRef = FirebaseDatabase.getInstance().getReference().child("Tasks").child(homeUserEmail);
+
         final TextView Username=view.findViewById(R.id.homeTextViewName);
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

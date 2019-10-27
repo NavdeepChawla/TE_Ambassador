@@ -159,8 +159,7 @@ public class OTP extends AppCompatActivity {
 
         @Override
         public void onVerificationFailed(FirebaseException e) {
-
-
+            Toast.makeText(OTP.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -199,15 +198,25 @@ public class OTP extends AppCompatActivity {
     private void pushToDatabase(com.adgvit.teambassador.userInfo userInfo)
     {
         try {
-
+            String tempEmail=userInfo.getemail();
+            char [] tempArr=tempEmail.toCharArray();
+            for (int i = 0; i <tempArr.length ; i++) {
+                if(tempArr[i]=='.')
+                {
+                    tempArr[i]='_';
+                }
+            }
+            tempEmail=tempArr.toString();
+            dataBaseReference.child("Tasks").child(tempEmail).child("Level").setValue(1);
+            dataBaseReference.child("Tasks").child(tempEmail).child("Progress").setValue(0);
             dataBaseReference.child("Users")
-                    .child(userInfo.getphone())
+                    .child(tempEmail)
                     .child("DOB").setValue(userInfo.getdob());
             dataBaseReference.child("Users")
-                    .child(userInfo.getphone())
+                    .child(tempEmail)
                     .child("Email").setValue(userInfo.getemail());
             dataBaseReference.child("Users")
-                    .child(userInfo.getphone())
+                    .child(tempEmail)
                     .child("Name").setValue(userInfo.getname());
         }
         catch (Exception e){

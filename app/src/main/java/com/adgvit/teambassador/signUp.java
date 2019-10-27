@@ -23,8 +23,7 @@ public class signUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+       getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         phoneEditText = findViewById(R.id.signUpPhoneEditText);
         nameEditText = findViewById(R.id.signUpNameEditText);
@@ -124,7 +123,7 @@ public class signUp extends AppCompatActivity {
 
     public void loginActivity(View view) {
 
-        /*Intent intent = new Intent(signUp.this,login.class;)
-        startActivity(intent);*/
+        Intent intent = new Intent(signUp.this,LogInActivity.class);
+        startActivity(intent);
     }
 }

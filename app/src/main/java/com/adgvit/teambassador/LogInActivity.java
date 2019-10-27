@@ -1,9 +1,11 @@
 package com.adgvit.teambassador;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,11 +27,14 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     TextInputEditText logInPasswordEditText;
     Button logInButton;
     TextView logInForgotPassword;
+    TextView logInSignUp;
 
     private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -37,25 +42,23 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         logInPasswordEditText = findViewById(R.id.logInPasswordEditText);
         logInForgotPassword = findViewById(R.id.loginForgotPassword);
         logInButton = findViewById(R.id.logInButton);
-
+        logInSignUp=findViewById(R.id.lognSignUP);
         firebaseAuth = FirebaseAuth.getInstance();
 
         logInButton.setOnClickListener(this);
         logInForgotPassword.setOnClickListener(this);
-
+        logInSignUp.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
+        switch (v.getId())
+        {
             case R.id.logInButton:
-
                 String email = Objects.requireNonNull(logInEmailEditText.getText()).toString().trim();
                 String password = Objects.requireNonNull(logInPasswordEditText.getText()).toString().trim();
-
                 if (TextUtils.isEmpty(email)) {
-
                     Toast.makeText(LogInActivity.this, "Please Enter Email", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -73,9 +76,13 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                         .addOnCompleteListener(LogInActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                if (task.isSuccessful())
+                                {
+                                    String tempEmail=(logInEmailEditText.getText()).toString().trim();
+                                    SharedPreferences.Editor editor = getSharedPreferences("EMAIL", MODE_PRIVATE).edit();
+                                    editor.putString("Email", tempEmail.replace('.','_'));
+                                    editor.apply();
+                                    startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
 
                                 } else {
 
@@ -85,13 +92,12 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                             }
                         });
                 break;
-
             case R.id.loginForgotPassword:
-
                 startActivity(new Intent(LogInActivity.this, ForgotPasswordActivity.class));
-
                 break;
-
+            case R.id.lognSignUP:
+                startActivity(new Intent(LogInActivity.this, signUp.class));
+                break;
         }
     }
 }
