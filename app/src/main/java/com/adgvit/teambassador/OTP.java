@@ -198,15 +198,7 @@ public class OTP extends AppCompatActivity {
     private void pushToDatabase(com.adgvit.teambassador.userInfo userInfo)
     {
         try {
-            String tempEmail=userInfo.getemail();
-            char [] tempArr=tempEmail.toCharArray();
-            for (int i = 0; i <tempArr.length ; i++) {
-                if(tempArr[i]=='.')
-                {
-                    tempArr[i]='_';
-                }
-            }
-            tempEmail=tempArr.toString();
+            String tempEmail=userInfo.getemail().replace('.','_');
             dataBaseReference.child("Tasks").child(tempEmail).child("Level").setValue(1);
             dataBaseReference.child("Tasks").child(tempEmail).child("Progress").setValue(0);
             dataBaseReference.child("Users")
@@ -255,8 +247,4 @@ public class OTP extends AppCompatActivity {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
-
 }
-
-
-
