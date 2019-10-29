@@ -82,8 +82,9 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
                                     SharedPreferences.Editor editor = getSharedPreferences("EMAIL", MODE_PRIVATE).edit();
                                     editor.putString("Email", tempEmail.replace('.','_'));
                                     editor.apply();
-                                    startActivity(new Intent(getApplicationContext(), NavigationActivity.class));
-
+                                    Intent intent = new Intent(LogInActivity.this,MainActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
                                 } else {
 
                                     Toast.makeText(LogInActivity.this, "Login Failed or User not available", Toast.LENGTH_SHORT).show();

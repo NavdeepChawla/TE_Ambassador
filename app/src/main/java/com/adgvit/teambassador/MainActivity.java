@@ -4,17 +4,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,6 +31,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -51,11 +57,15 @@ public class MainActivity extends AppCompatActivity {
     private AVLoadingIndicatorView progressBar;
     private LinearLayout linearLayout, linearLayout2;
     private CardView cardView;
+    private CoordinatorLayout view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         yetToUploadTextView = findViewById(R.id.yetToUploadTextView);
         pendingTextView = findViewById(R.id.pendingTextView);
@@ -71,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.linearLayout);
         linearLayout2 = findViewById(R.id.linearLayout2);
         cardView = findViewById(R.id.cardView);
+        view = findViewById(R.id.layout);
 
         pendingTextView.setVisibility(View.INVISIBLE);
         rejectedTextView.setVisibility(View.INVISIBLE);
@@ -117,7 +128,8 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                            Toast.makeText(getApplicationContext(), "Image Uploaded", Toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Image uploaded",Snackbar.LENGTH_LONG)
+                                    .setActionTextColor(Color.WHITE).show();
                             selectImageButton.setEnabled(false);
                             selectImageButton.setAlpha(0.2f);
                             statusBar.setProgress(2);
@@ -133,7 +145,8 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
 
-                            Toast.makeText(getApplicationContext(), "Error occurred. Try Again", Toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Error getting image",Snackbar.LENGTH_LONG)
+                                    .setActionTextColor(Color.WHITE).show();
                             showUI();
 
                         }
@@ -147,8 +160,8 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(getApplicationContext(),"No File Chosen",Toast.LENGTH_SHORT).show();
-        }
+            Snackbar.make(view,"No image chosen",Snackbar.LENGTH_LONG)
+                    .setActionTextColor(Color.WHITE).show();        }
 
     }
 
@@ -196,10 +209,11 @@ public class MainActivity extends AppCompatActivity {
                 imageUri = data.getData();
                 Log.i("INFO","Getting Image");
 
-                new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("Upload Image?")
-                        .setMessage("Are you sure you want to upload the selected image?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder
+                        .setTitle(R.string.alertTitle)
+                        .setMessage(R.string.alertMessage)
+                        .setPositiveButton(R.string.positiveButton, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Log.i("INFO","YES Clicked");
@@ -211,10 +225,24 @@ public class MainActivity extends AppCompatActivity {
                                 uploadFile();
                             }
                         })
-                        .setNegativeButton("No",null).show();
+                        .setNegativeButton(R.string.negativeButton,null);
+
+                AlertDialog dialog = builder.create();
+
+                dialog.show();
+
+                Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+
+                negativeButton.setBackground(null);
+                positiveButton.setBackground(null);
+
+                negativeButton.setTextColor(getResources().getColor(R.color.colorBlue));
+                positiveButton.setTextColor(getResources().getColor(R.color.colorBlue));
+
             }
         }catch (Exception e){
-            Toast.makeText(this, "Error getting image", Toast.LENGTH_SHORT).show();
-        }
+            Snackbar.make(view,"Error getting image",Snackbar.LENGTH_LONG)
+                    .setActionTextColor(Color.WHITE).show();        }
     }
 }

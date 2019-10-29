@@ -15,20 +15,20 @@
     <string name="forgotPasswordButton">Reset Password</string>
 
     //signUp
-    <string name="signUpPhone">Phone No.</string>
+    <string name="signUpPhone">Phone Number</string>
     <string name="signUpName">Name</string>
     <string name="signUpEmail">Email</string>
     <string name="signUpPassword">Password</string>
     <string name="signUpDob">DD/MM/YYYY</string>
-    <string name="signUpButton">SIGN UP</string>
-    <string name="signUpLoginJump">Already a member? Please login.</string>
+    <string name="signUpButton">Sign Up</string>
+    <string name="signUpLoginJump">Already a member? Please Login</string>
     <string name="signUpHello">Hello,</string>
     <string name="signUpSign">Sign Up!</string>
 
     //OTP
     <string name="otpNumber">We have sent OTP to +91 9891179000</string>
     <string name="otpResend">Resend Code</string>
-    <string name="otpVerifyButton">VERIFY</string>
+    <string name="otpVerifyButton">Verify</string>
 
     <!-- NavigationActivity -->
     <string name="title_activity_navigation">NavigationActivity</string>
@@ -58,9 +58,13 @@
     <string name="taskStatus">Pending for approval</string>
     <string name="statusTitle">Status</string>
     <string name="uploadTitle">Upload Your Work</string>
-    <string name="uploadButton">Select an Image</string>
+    <string name="uploadButton">Select an image</string>
     <string name="progressBarMessage1">Yet to Upload</string>
     <string name="progressBarMessage2">Pending for Approval</string>
     <string name="progressBarMessage3">Rejected</string>
     <string name="progressBarMessage4">Completed</string>
+    <string name="alertTitle">Upload Image?</string>
+    <string name="alertMessage">Are you sure you want to upload the selected image?</string>
+    <string name="positiveButton">Yes</string>
+    <string name="negativeButton">No</string>
 </resources>
