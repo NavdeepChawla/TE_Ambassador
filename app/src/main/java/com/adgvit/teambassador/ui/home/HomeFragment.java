@@ -1,8 +1,6 @@
 package com.adgvit.teambassador.ui.home;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -197,13 +195,12 @@ public class HomeFragment extends Fragment {
     public void hideUI()
     {
         Float alpha = 0.2f;
-        //toolbar.setAlpha(alpha);
         constraints.setAlpha(alpha);
         linearLayout.setAlpha(alpha);
         //navigationView.setAlpha(alpha);
         //drawer.setAlpha(alpha);
+        //toolbar.setAlpha(alpha);
         navigationView.setEnabled(false);
-        drawer.setEnabled(false);
         linearLayout.setEnabled(false);
         toolbar.setEnabled(false);
         loadingbar.setVisibility(View.VISIBLE);
@@ -214,58 +211,12 @@ public class HomeFragment extends Fragment {
         Float alpha = 1.0f;
         constraints.setAlpha(alpha);
         linearLayout.setAlpha(alpha);
-        navigationView.setEnabled(true);
         //toolbar.setAlpha(alpha);
         //drawer.setAlpha(alpha);
         //navigationView.setAlpha(alpha);
-        drawer.setEnabled(true);
         toolbar.setEnabled(true);
+        navigationView.setEnabled(true);
         linearLayout.setEnabled(true);
         loadingbar.setVisibility(View.INVISIBLE);
     }
 }
-
-
-
-
-
-                    /*
-                    if ("progress".equalsIgnoreCase(a)) {
-                        DatabaseReference tempRef = keyRef.child(a);
-                        tempRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-                            {
-                                String tempProgress = dataSnapshot.getValue().toString() + "xp";
-                                String tempProgress2 = dataSnapshot.getValue().toString();
-                                completed.setText(tempProgress);
-                                prog = Integer.parseInt(tempProgress2);
-                                System.out.println(prog);
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
-                    } else if ("level".equalsIgnoreCase(a)) {
-                        String tempLevel = "Level " + ds.getValue().toString();
-                        level.setText(tempLevel);
-                        DatabaseReference tempRef = FirebaseDatabase.getInstance().getReference().child("Level").child(ds.getValue().toString());
-                        tempRef.addListenerForSingleValueEvent(new ValueEventListener()
-                        {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-                            {
-                                String maxprogress = dataSnapshot.getValue().toString() + "xp";
-                                String maxprogress2 = dataSnapshot.getValue().toString();
-                                remaining.setText(maxprogress);
-                                mprogress = Integer.parseInt(maxprogress2);
-                            }
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError)
-                            {
-
-                            }
-                        });
-                    } */

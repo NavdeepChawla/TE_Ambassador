@@ -50,6 +50,7 @@ public class NavigationActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        toolbar.setNavigationIcon(R.mipmap.ic_user);
         Button logout=findViewById(R.id.LogoutButton);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
