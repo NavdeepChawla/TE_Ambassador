@@ -25,14 +25,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/imageView"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/taskCardView"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginRight="40dp"
+                    app:cardCornerRadius="50dp"
+                    android:layout_marginEnd="40dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@android:color/holo_orange_dark" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -123,26 +123,25 @@
 
                     <ImageView
                         android:id="@+id/uploadImageView"
+                        android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/pick_image"
-                        tools:layout_editor_absoluteX="148dp"
-                        tools:layout_editor_absoluteY="587dp" />
+                        />
 
                     <Button
                         android:id="@+id/selectImageButton"
                         android:layout_width="wrap_content"
-                        android:layout_height="60dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:background="@drawable/upload_button_design"
                         android:text="@string/uploadButton"
                         android:textAllCaps="false"
                         android:textColor="@color/buttonTextColor"
                         android:textSize="18sp" />
-
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
-
             <ProgressBar
                 android:id="@+id/statusBar"
                 style="?android:attr/progressBarStyleHorizontal"

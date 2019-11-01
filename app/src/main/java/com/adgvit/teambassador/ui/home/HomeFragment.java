@@ -197,11 +197,11 @@ public class HomeFragment extends Fragment {
     public void hideUI()
     {
         Float alpha = 0.2f;
-        toolbar.setAlpha(alpha);
+        //toolbar.setAlpha(alpha);
         constraints.setAlpha(alpha);
         linearLayout.setAlpha(alpha);
         //navigationView.setAlpha(alpha);
-        drawer.setAlpha(alpha);
+        //drawer.setAlpha(alpha);
         navigationView.setEnabled(false);
         drawer.setEnabled(false);
         linearLayout.setEnabled(false);
@@ -215,7 +215,7 @@ public class HomeFragment extends Fragment {
         constraints.setAlpha(alpha);
         linearLayout.setAlpha(alpha);
         navigationView.setEnabled(true);
-        toolbar.setAlpha(alpha);
+        //toolbar.setAlpha(alpha);
         //drawer.setAlpha(alpha);
         //navigationView.setAlpha(alpha);
         drawer.setEnabled(true);

@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private AVLoadingIndicatorView progressBar;
     private LinearLayout linearLayout, linearLayout2;
     private CardView cardView;
+    private CardView taskColorCardView;
     private CoordinatorLayout view;
 
     @Override
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        taskColorCardView=findViewById(R.id.taskCardView);
         yetToUploadTextView = findViewById(R.id.yetToUploadTextView);
         pendingTextView = findViewById(R.id.pendingTextView);
         rejectedTextView = findViewById(R.id.rejectedTextView);
@@ -92,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Tasks").child(LogInActivity.tempEmail);
         storageReference = FirebaseStorage.getInstance().getReference().child(LogInActivity.tempEmail);
 
+        taskColorCardView.setCardBackgroundColor(Color.parseColor(getIntent().getStringExtra("ColorCode")));
         taskName = getIntent().getStringExtra("TaskName");
         taskDaysLeft = getIntent().getStringExtra("TaskDaysLeft");
         colorCode = getIntent().getStringExtra("ColorCode");
