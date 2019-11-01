@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#A1A1A1</color>
+    <color name="colorAccent">#A1A1A1</color>
+    <color name="navigationBar">#6C61F6</color>
+    <color name="navigationBarDark">#6C61F6</color>
+    <color name="textBlack">#000000</color>
+    <color name="textBlue">#6C61F6</color>
+    <color name="homeProgressBar">#FF8279F7</color>
+    <color name="homeProgressBarBack">#FFB9B4FB</color>
+    <color name="colorBlue">#6C61F6</color>
+    <color name="colorOutline">#A1A1A1</color>
+    <color name="textColor">#000000</color>
+    <color name="titleColor">#6C61F6</color>
+    <color name="buttonTextColor">#FFFFFF</color>
+    <color name="completed">#EE13CF26</color>
+    <color name="rejected">#F2FF0000</color>
+    <color name="pending">#FF5722</color>
+</resources>
